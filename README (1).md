@@ -1,30 +1,23 @@
-# jss-stu-ml-lab-exam
-This repository contains the programs for the ml lab
+𝟏.𝐕𝐢𝐬𝐮𝐚𝐥𝐢𝐳𝐞 𝐭𝐡𝐞 𝐧-𝐝𝐢𝐦𝐞𝐧𝐬𝐢𝐨𝐧𝐚𝐥 𝐝𝐚𝐭𝐚 𝐮𝐬𝐢𝐧𝐠 𝟑𝐃 𝐬𝐮𝐫𝐟𝐚𝐜𝐞 𝐩𝐥𝐨𝐭𝐬. 𝐖𝐫𝐢𝐭𝐞 𝐚 𝐩𝐫𝐨𝐠𝐫𝐚𝐦 𝐭𝐨 𝐢𝐦𝐩𝐥𝐞𝐦𝐞𝐧𝐭 𝐭𝐡𝐞 𝐁𝐞𝐬𝐭 𝐅𝐢𝐫𝐬𝐭 𝐒𝐞𝐚𝐫𝐜𝐡 (𝐁𝐅𝐒) 𝐚𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦.
 
-1	Visualize the n-dimensional data using 3D surface plots.
-Write a program to implement the Best First Search (BFS) algorithm.
+𝟐.𝐕𝐢𝐬𝐮𝐚𝐥𝐢𝐳𝐞 𝐭𝐡𝐞 𝐧-𝐝𝐢𝐦𝐞𝐧𝐬𝐢𝐨𝐧𝐚𝐥 𝐝𝐚𝐭𝐚 𝐮𝐬𝐢𝐧𝐠 𝐜𝐨𝐧𝐭𝐨𝐮𝐫 𝐩𝐥𝐨𝐭𝐬. 𝐖𝐫𝐢𝐭𝐞 𝐚 𝐩𝐫𝐨𝐠𝐫𝐚𝐦 𝐭𝐨 𝐢𝐦𝐩𝐥𝐞𝐦𝐞𝐧𝐭 𝐭𝐡𝐞 𝐀* 𝐚𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦
 
-2	Visualize the n-dimensional data using contour plots.
-Write a program to implement the A* algorithm
+𝟑.𝐕𝐢𝐬𝐮𝐚𝐥𝐢𝐳𝐞 𝐭𝐡𝐞 𝐧-𝐝𝐢𝐦𝐞𝐧𝐬𝐢𝐨𝐧𝐚𝐥 𝐝𝐚𝐭𝐚 𝐮𝐬𝐢𝐧𝐠 𝐡𝐞𝐚𝐭-𝐦𝐚𝐩. 𝐖𝐫𝐢𝐭𝐞 𝐚 𝐩𝐫𝐨𝐠𝐫𝐚𝐦 𝐭𝐨 𝐢𝐦𝐩𝐥𝐞𝐦𝐞𝐧𝐭 𝐌𝐢𝐧-𝐌𝐚𝐱 𝐚𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦.
 
-3	Visualize the n-dimensional data using heat-map.
-Write a program to implement Min-Max algorithm.
+𝟒.𝐕𝐢𝐬𝐮𝐚𝐥𝐢𝐳𝐞 𝐭𝐡𝐞 𝐧-𝐝𝐢𝐦𝐞𝐧𝐬𝐢𝐨𝐧𝐚𝐥 𝐝𝐚𝐭𝐚 𝐮𝐬𝐢𝐧𝐠 𝐁𝐨𝐱-𝐩𝐥𝐨𝐭. 𝐖𝐫𝐢𝐭𝐞 𝐚 𝐩𝐫𝐨𝐠𝐫𝐚𝐦 𝐭𝐨 𝐢𝐦𝐩𝐥𝐞𝐦𝐞𝐧𝐭 𝐀𝐥𝐩𝐡𝐚-𝐛𝐞𝐭𝐚 𝐩𝐫𝐮𝐧𝐢𝐧𝐠 𝐚𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦.
 
-4	Visualize the n-dimensional data using Box-plot.
-Write a program to implement Alpha-beta pruning algorithm.
+𝟓.𝐖𝐫𝐢𝐭𝐞 𝐚 𝐩𝐫𝐨𝐠𝐫𝐚𝐦 𝐭𝐨 𝐝𝐞𝐯𝐞𝐥𝐨𝐩 𝐭𝐡𝐞 𝐍𝐚𝐢𝐯𝐞 𝐁𝐚𝐲𝐞𝐬 𝐜𝐥𝐚𝐬𝐬𝐢𝐟𝐢𝐞𝐫 𝐨𝐧 𝐓𝐢𝐭𝐚𝐧𝐢𝐜 𝐝𝐚𝐭𝐚𝐬𝐞𝐭.
 
-5	Write a program to develop the Naive Bayes classifier on Titanic dataset.
+𝟔.𝐖𝐫𝐢𝐭𝐞 𝐚 𝐩𝐫𝐨𝐠𝐫𝐚𝐦 𝐭𝐨 𝐝𝐞𝐯𝐞𝐥𝐨𝐩 𝐭𝐡𝐞 𝐊𝐍𝐍 𝐜𝐥𝐚𝐬𝐬𝐢𝐟𝐢𝐞𝐫 𝐰𝐢𝐭𝐡 𝐄𝐮𝐜𝐥𝐢𝐝𝐞𝐚𝐧 𝐝𝐢𝐬𝐭𝐚𝐧𝐜𝐞 𝐚𝐧𝐝 𝐌𝐚𝐧𝐡𝐚𝐭𝐭𝐚𝐧 𝐝𝐢𝐬𝐭𝐚𝐧𝐜𝐞 𝐟𝐨𝐫 𝐭𝐡𝐞 𝐤 𝐯𝐚𝐥𝐮𝐞𝐬 𝐚𝐬 𝟑 𝐛𝐚𝐬𝐞𝐝 𝐨𝐧 𝐬𝐩𝐥𝐢𝐭 𝐮𝐩 𝐨𝐟 𝐭𝐫𝐚𝐢𝐧𝐢𝐧𝐠 𝐚𝐧𝐝 𝐭𝐞𝐬𝐭𝐢𝐧𝐠 𝐝𝐚𝐭𝐚𝐬𝐞𝐭 𝐚𝐬 𝟕𝟎-𝟑𝟎 𝐨𝐧 𝐆𝐥𝐚𝐬𝐬 𝐝𝐚𝐭𝐚𝐬𝐞𝐭.
 
-6	Write a program to develop the KNN classifier with Euclidean distance and Manhattan distance for the k values as 3 based on split up of training and testing dataset as 70-30 on Glass dataset.
+𝟕.𝐖𝐫𝐢𝐭𝐞 𝐚 𝐩𝐫𝐨𝐠𝐫𝐚𝐦 𝐭𝐨 𝐝𝐞𝐯𝐞𝐥𝐨𝐩 𝐚 𝐝𝐞𝐜𝐢𝐬𝐢𝐨𝐧 𝐭𝐫𝐞𝐞 𝐜𝐥𝐚𝐬𝐬𝐢𝐟𝐢𝐞𝐫 𝐛𝐚𝐬𝐞𝐝 𝐨𝐧 𝐰𝐞𝐚𝐭𝐡𝐞𝐫 𝐟𝐨𝐫𝐞𝐜𝐚𝐬𝐭𝐢𝐧𝐠 𝐝𝐚𝐭𝐚𝐬𝐞𝐭.
 
-7	Write a program to develop a decision tree classifier based on weather forecasting dataset.
+𝟖.𝐖𝐫𝐢𝐭𝐞 𝐚 𝐩𝐫𝐨𝐠𝐫𝐚𝐦 𝐭𝐨 𝐩𝐞𝐫𝐟𝐨𝐫𝐦 𝐮𝐧𝐬𝐮𝐩𝐞𝐫𝐯𝐢𝐬𝐞𝐝 𝐊-𝐦𝐞𝐚𝐧𝐬 𝐜𝐥𝐮𝐬𝐭𝐞𝐫𝐢𝐧𝐠 𝐭𝐞𝐜𝐡𝐧𝐢𝐪𝐮𝐞𝐬 𝐨𝐧 𝐈𝐫𝐢𝐬 𝐝𝐚𝐭𝐚𝐬𝐞𝐭.
 
-8	Write a program to perform unsupervised K-means clustering techniques on Iris dataset.
+𝟗.𝐖𝐫𝐢𝐭𝐞 𝐚 𝐩𝐫𝐨𝐠𝐫𝐚𝐦 𝐭𝐨 𝐩𝐞𝐫𝐟𝐨𝐫𝐦 𝐚𝐠𝐠𝐥𝐨𝐦𝐞𝐫𝐚𝐭𝐢𝐯𝐞 𝐜𝐥𝐮𝐬𝐭𝐞𝐫𝐢𝐧𝐠 𝐛𝐚𝐬𝐞𝐝 𝐨𝐧 𝐬𝐢𝐧𝐠𝐥𝐞-𝐥𝐢𝐧𝐤𝐚𝐠𝐞, 𝐜𝐨𝐦𝐩𝐥𝐞𝐭𝐞-𝐥𝐢𝐧𝐤𝐚𝐠𝐞 𝐜𝐫𝐢𝐭𝐞𝐫𝐢𝐚.
 
-9	Write a program to perform agglomerative clustering based on single-linkage, complete-linkage criteria.
+𝟏𝟎.𝐖𝐫𝐢𝐭𝐞 𝐚 𝐩𝐫𝐨𝐠𝐫𝐚𝐦 𝐭𝐨 𝐝𝐞𝐯𝐞𝐥𝐨𝐩 𝐚 𝐝𝐞𝐜𝐢𝐬𝐢𝐨𝐧 𝐭𝐫𝐞𝐞 𝐜𝐥𝐚𝐬𝐬𝐢𝐟𝐢𝐞𝐫 𝐛𝐚𝐬𝐞𝐝 𝐨𝐧 𝐰𝐞𝐚𝐭𝐡𝐞𝐫 𝐟𝐨𝐫𝐞𝐜𝐚𝐬𝐭𝐢𝐧𝐠 𝐝𝐚𝐭𝐚𝐬𝐞𝐭.
 
-10	Write a program to develop a decision tree classifier based on weather forecasting dataset.
+𝟏𝟏.𝐖𝐫𝐢𝐭𝐞 𝐚 𝐩𝐫𝐨𝐠𝐫𝐚𝐦 𝐭𝐨 𝐝𝐞𝐯𝐞𝐥𝐨𝐩 𝐏𝐫𝐢𝐧𝐜𝐢𝐩𝐚𝐥 𝐂𝐨𝐦𝐩𝐨𝐧𝐞𝐧𝐭 𝐀𝐧𝐚𝐥𝐲𝐬𝐢𝐬 (𝐏𝐂𝐀) 𝐚𝐧𝐝 𝐋𝐢𝐧𝐞𝐚𝐫 𝐃𝐢𝐬𝐜𝐫𝐢𝐦𝐢𝐧𝐚𝐧𝐭 𝐀𝐧𝐚𝐥𝐲𝐬𝐢𝐬 (𝐋𝐃𝐀) 𝐚𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦𝐬.
 
-11	Write a program to develop Principal Component Analysis (PCA) and Linear Discriminant Analysis (LDA) algorithms.
-
-12	Write a Program to develop simple single layer perceptron to implement AND, OR Boolean functions.
+𝟏𝟐.𝐖𝐫𝐢𝐭𝐞 𝐚 𝐏𝐫𝐨𝐠𝐫𝐚𝐦 𝐭𝐨 𝐝𝐞𝐯𝐞𝐥𝐨𝐩 𝐬𝐢𝐦𝐩𝐥𝐞 𝐬𝐢𝐧𝐠𝐥𝐞 𝐥𝐚𝐲𝐞𝐫 𝐩𝐞𝐫𝐜𝐞𝐩𝐭𝐫𝐨𝐧 𝐭𝐨 𝐢𝐦𝐩𝐥𝐞𝐦𝐞𝐧𝐭 𝐀𝐍𝐃, 𝐎𝐑 𝐁𝐨𝐨𝐥𝐞𝐚𝐧 𝐟𝐮𝐧𝐜𝐭𝐢𝐨𝐧𝐬.
