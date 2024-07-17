@@ -1,51 +1,47 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.cluster.hierarchy import dendrogram, linkage
 from sklearn.datasets import load_iris
-from sklearn.metrics import confusion_matrix
+from sklearn.decomposition import PCA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
+from sklearn.preprocessing import StandardScaler
 import seaborn as sns
 
-iris = load_iris()
-data = iris.data[:6]
+X = load_iris().data
+y = load_iris().target
 
-def proximity_matrix(data):
-    n = data.shape[0]
-    proximity_matrix = np.zeros((n, n))
-    for i in range(n):
-        for j in range(i+1, n):
-            proximity_matrix[i, j] = np.linalg.norm(data[i] - data[j])
-            proximity_matrix[j, i] = proximity_matrix[i, j]
-    return proximity_matrix
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
 
-def plot_dendrogram(data, method):
-    linkage_matrix = linkage(data, method=method)
-    dendrogram(linkage_matrix)
-    plt.title(f'Dendrogram - {method} linkage')
-    plt.xlabel('Data Points')
-    plt.ylabel('Distance')
-    plt.show()
+correlation_matrix = np.corrcoef(X_scaled.T)
+plt.figure(figsize=(6, 6))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('Correlation Matrix (After Standardization)')
+plt.show()
 
-def plot_confusion_matrix(true_labels, predicted_labels):
-    cm = confusion_matrix(true_labels, predicted_labels)
-    plt.figure(figsize=(6, 6))
-    sns.heatmap(cm, annot=True, cmap='Blues', fmt='d')
-    plt.xlabel('Predicted Class')
-    plt.ylabel('True Class')
-    plt.title('Confusion Matrix')
-    plt.show()
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_scaled)
 
-def plot_correlation_matrix(data):
-    correlation_matrix = np.corrcoef(data.T)
-    plt.figure(figsize=(6, 6))
-    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
-    plt.title('Correlation Matrix')
-    plt.show()
+print("Shape of Data (Original):", X.shape)
+print("Shape of PCA-transformed Data:", X_pca.shape)
 
-plot_correlation_matrix(data)
-print("Proximity matrix:")
-print(proximity_matrix(data))
-plot_dendrogram(data, 'single')
-plot_dendrogram(data, 'complete')
-true_labels = np.array([0, 0, 1, 1, 2, 2])
-predicted_labels = np.array([0, 0, 1, 2, 2, 2])
-plot_confusion_matrix(true_labels, predicted_labels)
+plt.figure(figsize=(10, 4))
+
+plt.subplot(1, 2, 1)
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=y, cmap="jet")
+plt.xlabel("Principal Component 1")
+plt.ylabel("Principal Component 2")
+plt.title("PCA of Iris Dataset")
+
+lda = LDA(n_components=2)
+X_lda = lda.fit_transform(X_scaled, y)
+
+print("Shape of LDA-transformed Data:", X_lda.shape)
+
+plt.subplot(1, 2, 2)
+plt.scatter(X_lda[:, 0], X_lda[:, 1], c=y, cmap="jet")
+plt.xlabel("Linear Discriminant 1")
+plt.ylabel("Linear Discriminant 2")
+plt.title("LDA of Iris Dataset")
+
+plt.tight_layout()
+plt.show()
