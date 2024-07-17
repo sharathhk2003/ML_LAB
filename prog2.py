@@ -17,6 +17,7 @@ plt.title('Contour Plot')
 plt.show()
 
 
+
 2.B
 import heapq
 
