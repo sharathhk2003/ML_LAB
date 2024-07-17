@@ -16,10 +16,6 @@ plt.show()
 
 
 
-
-
-
-
 # 1.B
 from queue import PriorityQueue
 
