@@ -1,59 +1,40 @@
-from queue import PriorityQueue
+import numpy as np 
+from keras.models import Sequential 
+from keras.layers import Dense 
 
-def best_first_search(graph, start, goal, heuristic):
-    visited = set()
-    pq = PriorityQueue()
-    pq.put((heuristic[start], start))
-    cost = 0  # Initialize cost outside the loop
-    
-    while not pq.empty():
-        h, node = pq.get()
-        
-        if node == goal:
-            print("Goal reached:", node)
-            print("Total cost:", cost)
-            return
-        
-        if node not in visited:
-            for neighbor in graph[node]:
-                if neighbor not in visited:
-                    pq.put((heuristic[neighbor], neighbor))
-            
-            print("Visiting node:", node)
-            visited.add(node)
-            cost += 1  # Increment cost for each node visited
-    
-    print("Goal not found!")
+X_and = np.array([[0, 0], [0, 1], [1, 0], [1, 1]]) 
+y_and = np.array([0, 0, 0, 1]) 
 
-# Example graph representation using adjacency list
-graph = {
-    'S': ['A', 'B'],
-    'A': ['C', 'D'],
-    'B': ['E', 'F'],
-    'C': [],
-    'D': [],
-    'E': ['H'],
-    'F': ['I', 'G'],
-    'H': [],
-    'I': [],
-    'G': [],
-}
+X_or = np.array([[0, 0], [0, 1], [1, 0], [1, 1]]) 
+y_or = np.array([0, 1, 1, 1]) 
 
-start_node = 'S'
-goal_node = 'G'
+def create_and_train_model(inputs, labels, epochs=2000): 
+    model = Sequential([ 
+        Dense(1, input_dim=2, activation='sigmoid')
+    ]) 
+    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']) 
+    model.fit(inputs, labels, epochs=epochs, verbose=0) 
+    return model 
 
-# Heuristic values from current node to goal node
-heuristic_values = {
-    'S': 13,
-    'A': 12,
-    'B': 4,
-    'C': 7,
-    'D': 3,
-    'E': 8,
-    'F': 2,
-    'H': 4,
-    'I': 9,
-    'G': 0,
-}
+model_and = create_and_train_model(X_and, y_and) 
+model_or = create_and_train_model(X_or, y_or) 
 
-best_first_search(graph, start_node, goal_node, heuristic_values)  # S -> B -> F -> G
+def test_model(model, inputs): 
+    predictions = model.predict(inputs) 
+    predictions = [round(pred[0]) for pred in predictions] 
+    return predictions 
+
+print("AND Function Predictions:") 
+print(test_model(model_and, X_and)) 
+
+print("\nOR Function Predictions:") 
+print(test_model(model_or, X_or)) 
+
+and_test_input = np.array([[1, 1]]) 
+or_test_input = np.array([[0, 1]]) 
+
+print("\nAND Function Prediction for input [1, 1]:") 
+print(test_model(model_and, and_test_input)) 
+
+print("\nOR Function Prediction for input [0, 1]:") 
+print(test_model(model_or, or_test_input))
