@@ -1,6 +1,8 @@
 import numpy as np 
 from keras.models import Sequential 
 from keras.layers import Dense 
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 X_and = np.array([[0, 0], [0, 1], [1, 0], [1, 1]]) 
 y_and = np.array([0, 0, 0, 1]) 
