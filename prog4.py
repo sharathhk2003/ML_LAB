@@ -7,6 +7,8 @@ plt.boxplot([data["Price"],data["HP"],data["KM"]])
 plt.xticks([1,2,3],["Price","HP","KM"])
 plt.show()
 
+
+
 #4.B
 def alphabeta(depth, nodeIndex, maximizingPlayer, values, alpha, beta, path):
     if depth == 3:
