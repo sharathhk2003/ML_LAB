@@ -4,12 +4,14 @@ def best_first_search(graph, start, goal, heuristic):
     visited = set()
     pq = PriorityQueue()
     pq.put((heuristic[start], start))
+    cost = 0  # Initialize cost outside the loop
     
     while not pq.empty():
-        h,node = pq.get()
+        h, node = pq.get()
         
         if node == goal:
             print("Goal reached:", node)
+            print("Total cost:", cost)
             return
         
         if node not in visited:
@@ -19,27 +21,28 @@ def best_first_search(graph, start, goal, heuristic):
             
             print("Visiting node:", node)
             visited.add(node)
+            cost += 1  # Increment cost for each node visited
     
     print("Goal not found!")
 
 # Example graph representation using adjacency list
 graph = {
-    'S':['A','B'],
+    'S': ['A', 'B'],
     'A': ['C', 'D'],
     'B': ['E', 'F'],
     'C': [],
     'D': [],
     'E': ['H'],
     'F': ['I', 'G'],
-    'H':[],
-    'I':[],
-    'G':[],
+    'H': [],
+    'I': [],
+    'G': [],
 }
 
 start_node = 'S'
 goal_node = 'G'
 
-#Heuristic values from curr node -> goal node
+# Heuristic values from current node to goal node
 heuristic_values = {
     'S': 13,
     'A': 12,
@@ -53,4 +56,4 @@ heuristic_values = {
     'G': 0,
 }
 
-best_first_search(graph, start_node, goal_node, heuristic_values) # S -> B -> F -> G
+best_first_search(graph, start_node, goal_node, heuristic_values)  # S -> B -> F -> G
