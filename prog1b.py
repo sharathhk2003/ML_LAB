@@ -3,29 +3,37 @@ from queue import PriorityQueue
 def best_first_search(graph, start, goal, heuristic):
     visited = set()
     pq = PriorityQueue()
-    pq.put((heuristic[start], start))
-    cost = 0  # Initialize cost outside the loop
+    pq.put((0, start))
+    parent = {start: None}
+    path_cost = {start: 0} 
     
     while not pq.empty():
-        h, node = pq.get()
+        current_cost, node = pq.get()
         
         if node == goal:
-            print("Goal reached:", node)
-            print("Total cost:", cost)
-            return
+            break
         
         if node not in visited:
-            for neighbor in graph[node]:
-                if neighbor not in visited:
-                    pq.put((heuristic[neighbor], neighbor))
-            
-            print("Visiting node:", node)
             visited.add(node)
-            cost += 1  # Increment cost for each node visited
+            for neighbor in graph[node]:
+                new_cost = path_cost[node] + 1  
+                if neighbor not in path_cost or new_cost < path_cost[neighbor]:
+                    path_cost[neighbor] = new_cost
+                    total_cost = new_cost + heuristic[neighbor]
+                    pq.put((total_cost, neighbor))
+                    parent[neighbor] = node
     
-    print("Goal not found!")
+ 
+    path = []
+    node = goal
+    while node is not None:
+        path.append(node)
+        node = parent[node]
+    path.reverse()
+    
+    return path, path_cost.get(goal, float('inf'))
 
-# Example graph representation using adjacency list
+
 graph = {
     'S': ['A', 'B'],
     'A': ['C', 'D'],
@@ -40,9 +48,8 @@ graph = {
 }
 
 start_node = 'S'
-goal_node = 'G'
+goal_node = 'E'
 
-# Heuristic values from current node to goal node
 heuristic_values = {
     'S': 13,
     'A': 12,
@@ -56,4 +63,6 @@ heuristic_values = {
     'G': 0,
 }
 
-best_first_search(graph, start_node, goal_node, heuristic_values)  # S -> B -> F -> G
+path, total_cost = best_first_search(graph, start_node, goal_node, heuristic_values)
+print("Best First Search Path:", path)
+print("Total Cost:", total_cost)
