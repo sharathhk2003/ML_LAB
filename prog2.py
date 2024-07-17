@@ -1,4 +1,4 @@
-2.A
+#2.A
 # Contour Plot
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -18,7 +18,7 @@ plt.show()
 
 
 
-2.B
+#2.B
 import heapq
 
 class Node:
