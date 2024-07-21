@@ -10,9 +10,6 @@ iris = load_iris()
 X = iris.data
 y = iris.target
 
-df = pd.DataFrame(X, columns=iris.feature_names)
-df['target'] = y
-
 def kmeans(X, K, max_iters):
     centroids = X[:K]
     for _ in range(max_iters):
@@ -24,13 +21,12 @@ def kmeans(X, K, max_iters):
     return labels, centroids
 
 
-X_values = np.array(df.iloc[:, :-1].values) 
-labels, centroids = kmeans(X_values, 3, 200)
+labels, centroids = kmeans(X, 3, 20)
 
 print("Cluster labels:", labels)
 print("Centroids:\n", centroids)
 
-plt.scatter(X_values[:, 0], X_values[:, 1], c=labels, cmap='viridis')
+plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis')
 plt.scatter(centroids[:, 0], centroids[:, 1], marker="X", color="red", s=100)
 plt.xlabel(iris.feature_names[0])
 plt.ylabel(iris.feature_names[1])
@@ -45,13 +41,12 @@ plt.ylabel('Actual')
 plt.title('Confusion Matrix')
 plt.show()
 
+df = pd.DataFrame(X,columns=iris.feature_names)
 plt.figure(figsize=(10, 8))
 corr_matrix = df.corr()
 sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt='.2f', linewidths=.5)
 plt.title('Correlation Matrix')
 plt.show()
-
-
 
 
 
