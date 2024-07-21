@@ -43,5 +43,11 @@ plt.xlabel("Linear Discriminant 1")
 plt.ylabel("Linear Discriminant 2")
 plt.title("LDA of Iris Dataset")
 
+correlation_matrix = np.corrcoef(X_scaled.T)
+plt.figure(figsize=(6, 6))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('Correlation Matrix (After Standardization)')
+plt.show()
+
 plt.tight_layout()
 plt.show()
