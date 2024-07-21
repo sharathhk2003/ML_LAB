@@ -72,6 +72,8 @@ def plot_confusion_matrix(y_true, y_pred, title):
 
 plot_confusion_matrix(y_test, predictions_euclidean, "Confusion Matrix for Euclidean Distance")
 plot_confusion_matrix(y_test, predictions_manhattan, "Confusion Matrix for Manhattan Distance")
+plt.scatter(X[:,2],X[:,3],c=y)
+plt.show()
 
 
 
