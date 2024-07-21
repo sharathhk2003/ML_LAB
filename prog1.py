@@ -19,16 +19,20 @@ plt.show()
 
 # 1.B
 from queue import PriorityQueue
+
 def best_first_search(graph, start, goal, heuristic):
     visited = set()
     pq = PriorityQueue()
     pq.put((0, start))
     parent = {start: None}
     path_cost = {start: 0} 
+    
     while not pq.empty():
         current_cost, node = pq.get()
+        
         if node == goal:
             break
+        
         if node not in visited:
             visited.add(node)
             for neighbor, edge_cost in graph[node].items():
@@ -38,15 +42,18 @@ def best_first_search(graph, start, goal, heuristic):
                     total_cost = new_cost + heuristic[neighbor]
                     pq.put((total_cost, neighbor))
                     parent[neighbor] = node
+    if goal not in parent:
+        return [],float('inf')
+    
     path = []
     node = goal
     while node is not None:
         path.append(node)
         node = parent[node]
     path.reverse()
+    
     return path, path_cost.get(goal, float('inf'))
 
-# Example graph representation using adjacency list with edge costs
 graph = {
     'S': {'A': 1, 'B': 2},
     'A': {'C': 3, 'D': 4},
@@ -63,7 +70,6 @@ graph = {
 start_node = 'S'
 goal_node = 'G'
 
-# Heuristic values from current node to goal node
 heuristic_values = {
     'S': 13,
     'A': 12,
@@ -78,6 +84,9 @@ heuristic_values = {
 }
 
 path, total_cost = best_first_search(graph, start_node, goal_node, heuristic_values)
-print("Best First Search Path:", path)
-print("Total Cost:", total_cost)
-print("Number of Nodes Visited : ",len(path))
+if not path:
+    print("Not Found")
+else:
+    print("Best First Search Path:", path)
+    print("Total Cost:", total_cost)
+    print("Number of Nodes Visited : ",len(path))
