@@ -21,73 +21,77 @@ plt.show()
 #2.B
 import heapq
 
-class Node:
-    def __init__(self, position, parent=None):
-        self.position = position
-        self.parent = parent
-        self.g = 0  
-        self.h = 0  
-        self.f = 0
+def a_star_search_heapq(graph, start, goal, heuristic, cost):
+    # Priority queue for exploring nodes
+    priority_queue = []
+    heapq.heappush(priority_queue, (0 + heuristic[start], start))
+    visited = set()
+    g_cost = {start: 0}
+    parent = {start: None}
 
-    def __lt__(self, other):
-        return self.f < other.f
+    while priority_queue:
+        current_f_cost, current_node = heapq.heappop(priority_queue)
 
-def astar_search(graph, start, goal, heuristic):
-    open_list = []
-    closed_set = set()
+        if current_node in visited:
+            continue
 
-    heapq.heappush(open_list, Node(start))
+        visited.add(current_node)
 
-    while open_list:
-        current_node = heapq.heappop(open_list)
-        closed_set.add(current_node.position)
+        if current_node == goal:
+            break
 
-        if current_node.position == goal:
-            path = []
-            total_cost = current_node.g
-            while current_node:
-                path.append(current_node.position)
-                current_node = current_node.parent
-            return path[::-1], total_cost
+        for neighbor in graph[current_node]:
+            new_cost = g_cost[current_node] + cost[(current_node, neighbor)]
+            if neighbor not in g_cost or new_cost < g_cost[neighbor]:
+                g_cost[neighbor] = new_cost
+                f_cost = new_cost + heuristic[neighbor]
+                heapq.heappush(priority_queue, (f_cost, neighbor))
+                parent[neighbor] = current_node
 
-        neighbors = graph.get(current_node.position, [])
+    path = []
+    node = goal
+    total_cost = 0
+    while node is not None:
+        if parent[node] is not None:  
+                total_cost += cost[(parent[node], node)]
+        path.append(node)
+        node = parent[node]
+    path.reverse()
 
-        for neighbor, edge_cost in neighbors:
-            if neighbor in closed_set:
-                continue
+    return path, total_cost
 
-            neighbor_node = Node(neighbor, current_node)
-            neighbor_node.g = current_node.g + edge_cost  
-            neighbor_node.h = heuristic[neighbor]
-            neighbor_node.f = neighbor_node.g + neighbor_node.h
-
-            heapq.heappush(open_list, neighbor_node)
-
-    return [], float('inf') 
-
+# Given graph
 graph = {
-    'A': [('B', 2), ('E', 3)],
-    'B': [('C', 1), ('G', 9)],
-    'C': [],
-    'D': [('G', 1)],
-    'E': [('D', 6)],
-    'G': []
+    'S': ['A', 'B'],
+    'A': ['B', 'C', 'D'],
+    'B': ['C'],
+    'C': ['D'],
+    'D': []
 }
 
+# Given heuristic values
 heuristic = {
-    'A': 1,
-    'B': 6,
-    'C': 99,
-    'D': 1,
-    'E': 7,
-    'G': 0
+    'S': 7,
+    'A': 6,
+    'B': 2,
+    'C': 1,
+    'D': 0
 }
-start_node = 'A'
-goal_node = 'G'
 
-path, total_cost = astar_search(graph, start_node, goal_node, heuristic)
-if path:
-    print("A* Search Path:", path)
-    print("Total Cost:", total_cost)
-else:
-    print("No path found from", start_node, "to", goal_node)
+# Given costs between nodes
+cost = {
+    ('S', 'A'): 1,
+    ('S', 'B'): 4,
+    ('A', 'B'): 2,
+    ('A', 'C'): 5,
+    ('A', 'D'): 12,
+    ('B', 'C'): 2,
+    ('C', 'D'): 3
+}
+
+start = 'S'
+goal = 'D'
+
+path, total_cost = a_star_search_heapq(graph, start, goal, heuristic, cost)
+print("A* Search Path:", path)
+print("Total Cost:", total_cost)
